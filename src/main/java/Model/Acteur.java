@@ -1,17 +1,34 @@
-package Dto;
+package Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author odrey
  *
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class ActeurDto {
-	private String id;
+@Entity
+@Table(name = "ACTEUR")
+public class Acteur {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@Column
 	private String identite;
+
+	@Column
 	private int height;
+	
+	@Column
 	private String url;
+
+	@Column
 	private String dateNaissance;
 
 	/**
@@ -21,21 +38,23 @@ public class ActeurDto {
 	 * @param url
 	 * @param dateNaissance
 	 */
-	public ActeurDto() {
-		;
+	public Acteur() {
+	};
+
+	public Acteur(int id, String identite, int height, String url, String dateNaissance) {
+		super();
+		this.id = id;
+		this.identite = identite;
+		this.height = height;
+		this.url = url;
+		this.dateNaissance = dateNaissance;
 	}
 
-	@Override
-	public String toString() {
-		return "ActeurDto [id=" + id + ", identite=" + identite + ", height=" + height + ", url=" + url
-				+ ", dateNaissance=" + dateNaissance + "]";
-	}
-
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

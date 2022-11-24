@@ -4,11 +4,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import Class_Application.Acteur;
-import Class_Application.Genre;
-import Class_Application.Lieu;
-import Class_Application.Realisateur;
-import Class_Application.Role;
+import Model.Acteur;
+import Model.Genre;
+import Model.Lieu;
+import Model.Realisateur;
+import Model.Role;
 
 /**
  * @author odrey

@@ -1,4 +1,4 @@
-package Class_Application;
+package Model;
 
 public class Role {
 	private String nomPerso;
