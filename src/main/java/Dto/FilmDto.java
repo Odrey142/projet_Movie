@@ -3,6 +3,7 @@ package Dto;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import Model.Acteur;
 import Model.Genre;
@@ -14,6 +15,7 @@ import Model.Role;
  * @author odrey
  *
  */
+@JsonDeserialize()
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FilmDto {
 

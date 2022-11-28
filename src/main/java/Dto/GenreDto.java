@@ -14,6 +14,7 @@ public class GenreDto {
 		private List <String> type;
 
 		/**
+		 * Constructeur
 		 * @param type
 		 */
 		public GenreDto(List<String> type) {

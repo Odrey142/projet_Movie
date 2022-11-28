@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,17 +33,33 @@ public class Acteur {
 
 	@Column
 	private String dateNaissance;
+	
+	@ManyToMany
+	@JoinTable(name = "ACT_ROL", joinColumns = @JoinColumn(name = "ID_ACTEUR", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ID_ROLE", referencedColumnName = "ID"))
+	private Role role;
+	
+	@ManyToMany
+	@JoinTable(name = "ACT_LIE", joinColumns = @JoinColumn(name = "ID_ACTEUR", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ID_LIEU", referencedColumnName = "ID"))
+	private Lieu lieu;
+	
+	
 
+	
 	/**
+	 * Constructeur sans param
+	 */
+	public Acteur() {
+	};
+	
+	
+	/**
+	 * Constructeur
 	 * @param id
 	 * @param identite
 	 * @param height
 	 * @param url
 	 * @param dateNaissance
 	 */
-	public Acteur() {
-	};
-
 	public Acteur(int id, String identite, int height, String url, String dateNaissance) {
 		super();
 		this.id = id;
@@ -49,6 +68,7 @@ public class Acteur {
 		this.url = url;
 		this.dateNaissance = dateNaissance;
 	}
+	
 
 	public int getId() {
 		return id;
